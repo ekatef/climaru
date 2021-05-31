@@ -1,0 +1,12 @@
+Package: climaru
+Title: Preprocessing raw meteorological records provided by the World Data Center in Russia 
+Version: 1.0
+Description: A set of simple helpers to make use of the meteorological records across Russia by automating routine preprocessing operations.
+License: MIT + file LICENSE
+Depends: R (>= 3.1.0), readr, stringi
+URL: htpps://github.com/ekatef/climaru
+BugReports: https://github.com/ekatef
+Author: Ekaterina Fedotova @ekatef [aut, cre]
+Maintainer: Ekaterina Fedotova <ekatef@enemod.com>
+Repository: CRAN
+Date/Publication: 2021-01-25

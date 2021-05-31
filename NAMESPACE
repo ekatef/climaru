@@ -1,0 +1,7 @@
+exportPattern("^[[:alpha:]]+")
+importFrom("utils", "read.csv")
+importFrom("utils", "unzip")
+importFrom("utils", "tail")
+importFrom("readr", "read_file")
+importFrom("stringi", "stri_encode")
+importFrom("stringi", "stri_trans_general")
