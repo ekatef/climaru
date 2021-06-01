@@ -42,7 +42,17 @@ The function is intended for use on the zip archive loaded via meteo.ru. The ori
 
 \bold{"t_max"} is the maximum temperature value;
 
-\bold{"pre"} is the precipitation amount.
+\bold{"pre"} is the precipitation amount;
+
+\bold{"h_snow"};
+
+\bold{"share_snow"};
+
+\bold{"h_snow_details"};
+
+\bold{"h_snow_quality"};
+
+\bold{"snow_tas_details}.
 
 The list is currently under development and will be increased to include more meteorological variables could be assessed via the RIHMI WDC data base. The \code{"col_[[:digit:]]+"} (\emph{"col_1"}, \emph{"col_2"} etc) is used if the term is not available yet as a replacement of the initial notation.
 
