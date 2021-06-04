@@ -17,67 +17,105 @@ function(colnames_raw){
             "Dopolnitelnaya informatsiya o vysote snezhnogo pokrova",
             "Priznak kachestva po vysote snezhnogo pokrova",
             "Dopolnitelnaya informatsiya s uchetom temperatury vozdukha"
+
+            # atmospheric phenomena
+            "Sinopticheskiy indeks stantsii",
+            "God po Grinvichu",
+            "Mesyats po Grinvichu",
+            "Den po Grinvichu",
+            "Srok po Grinvichu",
+            "God istochnika (mestnyy)",
+            "Mesyats istochnika (mestnyy)",
+            "Den istochnika (mestnyy)",
+            "Srok istochnika",
+            "Nomer sroka v sutkakh po PDZV",
+            "Vremya mestnoye",
+            "Nomer chasovogo poyasa",
+            "Nachalo meteorologicheskikh sutok po PDZV",
+            "Nomer atmosfernogo yavleniya",
+            "Shifr atmosfernogo yavleniya",
+            "Intensivnost atmosfernogo yavleniya",
+            "Vremya nachala AYA (nat.znacheniye chasy min)",
+            "Vremya okonchaniya AYA (nat.znacheniye chasy min)",
+
+            # soil temperature observations
+            "Koordinatnyy nomer stantsii",
+            "Temperatura na glubine   sm uvelichennaya v raz"
+
+            # snow tracking
+            "Tip marshruta",
+            "Stepen pokrytiya okrestnosti stantsii snegom",
+            "Stepen pokrytiya marshruta snegom",
+            "Stepen pokrytiya marshruta ledyanoy korkoy",
+            "Srednyaya vysota snezhnogo pokrova na marshrute (sm)",
+            "Naibolshaya vysota snezhnogo pokrova na marshrute (sm)",
+            "Naimenshaya vysota snezhnogo pokrova na marshrute (sm)",
+            "Srednyaya plotnost snega",
+            "Srednyaya tolshchina ledyanoy korki",
+            "Tolshchina sloya snega nasyshchennogo vodoy (mm)",
+            "Tolshchina sloya chistoy vody (mm)",
+            "Zapas vody v snege (mm)",
+            "Zapas vody obshchiy (mm)",
+            "Kharakter zaleganiya snezhnogo pokrova",
+            "Kharakter snezhnogo pokrova" 
+
             ),
-
-#  [1] "Sinopticheskiy indeks stantsii"                   
-#  [2] "God po Grinvichu"                                 
-#  [3] "Mesyats po Grinvichu"                             
-#  [4] "Den po Grinvichu"                                 
-#  [5] "Srok po Grinvichu"                                
-#  [6] "God istochnika (mestnyy)"                         
-#  [7] "Mesyats istochnika (mestnyy)"                     
-#  [8] "Den istochnika (mestnyy)"                         
-#  [9] "Srok istochnika"                                  
-# [10] "Nomer sroka v sutkakh po PDZV"                    
-# [11] "Vremya mestnoye"                                  
-# [12] "Nomer chasovogo poyasa"                           
-# [13] "Nachalo meteorologicheskikh sutok po PDZV"        
-# [14] "Nomer atmosfernogo yavleniya"                     
-# [15] "Shifr atmosfernogo yavleniya"                     
-# [16] "Intensivnost atmosfernogo yavleniya"              
-# [17] "Vremya nachala AYA (nat.znacheniye chasy min)"    
-# [18] "Vremya okonchaniya AYA (nat.znacheniye chasy min)"
-
-# [1] "Koordinatnyy nomer stantsii"                     
-# [2] "God"                                             
-# [3] "Mesyats"                                         
-# [4] "Den"                                             
-# [5] "Temperatura na glubine   sm uvelichennaya v  raz"
-# [6] "Temperatura na glubine  sm uvelichennaya v  raz" 
-# [7] "Temperatura na glubine  sm uvelichennaya v  raz" 
-# [8] "Temperatura na glubine  sm uvelichennaya v  raz"
-
-#  [4] "Tip marshruta"                                         
-#  [5] "Den"                                                   
-#  [6] "Stepen pokrytiya okrestnosti stantsii snegom"          
-#  [7] "Stepen pokrytiya marshruta snegom"                     
-#  [8] "Stepen pokrytiya marshruta ledyanoy korkoy"            
-#  [9] "Srednyaya vysota snezhnogo pokrova na marshrute (sm)"  
-# [10] "Naibolshaya vysota snezhnogo pokrova na marshrute (sm)"
-# [11] "Naimenshaya vysota snezhnogo pokrova na marshrute (sm)"
-# [12] "Srednyaya plotnost snega"                              
-# [13] "Srednyaya tolshchina ledyanoy korki"                   
-# [14] "Tolshchina sloya snega nasyshchennogo vodoy (mm)"      
-# [15] "Tolshchina sloya chistoy vody (mm)"                    
-# [16] "Zapas vody v snege (mm)"                               
-# [17] "Zapas vody obshchiy (mm)"                              
-# [18] "Kharakter zaleganiya snezhnogo pokrova"                
-# [19] "Kharakter snezhnogo pokrova" 
 
 
         en = c("st_id",      "year",  "month", "day",
             
-            # tas-pre
+            # tas-pre parameters
             "t_quality_flag",
             "t_min", "t_avr", "t_max",
             "pre",
 
-            # snow
+            # snow observations
             "h_snow",
             "share_snow",
             "h_snow_details",
             "h_snow_quality",
             "snow_tas_details"
+
+            # atmospheric phenomena
+            "st_id_synopt",
+            "year_Greenwich",
+            "month_Greenwich",
+            "day_Greenwich",
+            "hour_Greenwich",
+            "year_local",
+            "month_local",
+            "day_local",
+            "hour_local",
+            "n_hour_in_day",
+            "time_local",
+            "i_time_zone",
+            "day_start",
+            "i_atm_phen",
+            "code_atm_phen",
+            "intensity_atm_phen",
+            "begin_atm_phen",
+            "end_atm_phen",
+
+            # soil temperature observations
+            "st_n_coordin",
+            "tas_Xcm_onX",
+
+            # snow tracking
+            "track_type",
+            "snow_coverage_station",
+            "snow_coverage_track",
+            "ice_coverage_track",
+            "h_mean_snow_track_cm",
+            "h_max_snow_track_cm",
+            "h_min_snow_track_cm",
+            "snow_density",
+            "h_ice",
+            "h_humide_snow_mm",
+            "h_water_mm",
+            "water_in_snow_mm",
+            "overall_water_mm",
+            "snow_coverage_type",
+            "snow_type"                        
 
             ),
      
