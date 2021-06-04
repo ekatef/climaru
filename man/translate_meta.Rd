@@ -52,11 +52,82 @@ The function is intended for use on the zip archive loaded via meteo.ru. The ori
 
 \bold{"h_snow_quality"};
 
-\bold{"snow_tas_details}.
+\bold{"snow_tas_details};
 
-The list is currently under development and will be increased to include more meteorological variables could be assessed via the RIHMI WDC data base. The \code{"col_[[:digit:]]+"} (\emph{"col_1"}, \emph{"col_2"} etc) is used if the term is not available yet as a replacement of the initial notation.
+\bold{"st_id_synopt"};
+
+\bold{"year_Greenwich"};
+
+\bold{"month_Greenwich"};
+
+\bold{"day_Greenwich"};
+
+\bold{"hour_Greenwich"};
+
+\bold{"year_local"};
+
+\bold{"month_local"};
+
+\bold{"day_local"};
+
+\bold{"hour_local"};
+
+\bold{"n_hour_in_day"};
+
+\bold{"time_local"};
+
+\bold{"i_time_zone"};
+
+\bold{"day_start"};
+
+\bold{"i_atm_phen"};
+
+\bold{"code_atm_phen"};
+
+\bold{"intensity_atm_phen"};
+
+\bold{"begin_atm_phen"};
+
+\bold{"end_atm_phen"};
+
+\bold{"st_n_coordin"};
+
+\bold{"tas_Xcm_onX"};
+
+\bold{"track_type"};
+
+\bold{"snow_coverage_station};
+
+\bo{ld{"snow_coverage_track"};
+
+\bold{"ice_coverage_track"};
+
+\bold{"h_mean_snow_track_cm"};
+
+\bold{"h_max_snow_track_cm"};
+
+\bold{"h_min_snow_track_cm"};
+
+\bold{"snow_density"};
+
+\bold{"h_ice"};
+
+\bold{"h_humide_snow_mm"};
+
+\bold{"h_water_mm"};
+
+\bold{"water_in_snow_mm"};
+
+\bold{"overall_water_mm"};
+
+\bold{"snow_coverage_type"};
+
+\bold"snow_type".          
+
+The list is currently under development to include more meteorological variables could be assessed via the RIHMI WDC data base. The \code{"col_[[:digit:]]+"} (\emph{"col_1"}, \emph{"col_2"} etc) is used if the term is not available yet as a replacement of the initial notation.
 
 }
+
 \examples{
 translate_meta(c("Indeks VMO", "Mesyats", "God"))
 
