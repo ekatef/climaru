@@ -44,15 +44,15 @@ The function is intended for use on the zip archive loaded via meteo.ru. The ori
 
 \bold{"pre"} is the precipitation amount;
 
-\bold{"h_snow"};
+\bold{"h_snow"} is the snow height;
 
 \bold{"snow_cover"} is the snow cover defined as a percentage of an area covered by snow;
 
-\bold{"h_snow_details"};
+\bold{"h_snow_details"} is an additional information related to the snow height;
 
-\bold{"h_snow_quality"};
+\bold{"h_snow_quality"} is the quality flag of the snow height measurment;
 
-\bold{"snow_tas_details};
+\bold{"snow_tas_details} is an additional information related to snow and the temperature conditions;
 
 \bold{"st_id_synopt"};
 
