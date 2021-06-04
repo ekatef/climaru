@@ -98,7 +98,7 @@ The function is intended for use on the zip archive loaded via meteo.ru. The ori
 
 \bold{"snow_coverage_station};
 
-\bo{ld{"snow_coverage_track"};
+\bold{"snow_coverage_track"};
 
 \bold{"ice_coverage_track"};
 
@@ -122,7 +122,7 @@ The function is intended for use on the zip archive loaded via meteo.ru. The ori
 
 \bold{"snow_coverage_type"};
 
-\bold"snow_type".          
+\bold{"snow_type"}.          
 
 The list is currently under development to include more meteorological variables could be assessed via the RIHMI WDC data base. The \code{"col_[[:digit:]]+"} (\emph{"col_1"}, \emph{"col_2"} etc) is used if the term is not available yet as a replacement of the initial notation.
 

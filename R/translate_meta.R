@@ -40,7 +40,7 @@ function(colnames_raw){
 
             # soil temperature observations
             "Koordinatnyy nomer stantsii",
-            "Temperatura na glubine   sm uvelichennaya v raz"
+            "Temperatura na glubine   sm uvelichennaya v raz",
 
             # snow tracking
             "Tip marshruta",
@@ -74,7 +74,7 @@ function(colnames_raw){
             "share_snow",
             "h_snow_details",
             "h_snow_quality",
-            "snow_tas_details"
+            "snow_tas_details",
 
             # atmospheric phenomena
             "st_id_synopt",
