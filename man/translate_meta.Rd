@@ -46,7 +46,7 @@ The function is intended for use on the zip archive loaded via meteo.ru. The ori
 
 \bold{"h_snow"};
 
-\bold{"share_snow"};
+\bold{"snow_cover"} is the snow cover defined as a percentage of an area covered by snow;
 
 \bold{"h_snow_details"};
 

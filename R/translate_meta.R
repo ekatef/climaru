@@ -71,7 +71,7 @@ function(colnames_raw){
 
             # snow observations
             "h_snow",
-            "share_snow",
+            "snow_cover",
             "h_snow_details",
             "h_snow_quality",
             "snow_tas_details",
@@ -102,9 +102,9 @@ function(colnames_raw){
 
             # snow tracking
             "track_type",
-            "snow_coverage_station",
-            "snow_coverage_track",
-            "ice_coverage_track",
+            "snow_cover_station",
+            "snow_cover_track",
+            "ice_cover_track",
             "h_mean_snow_track_cm",
             "h_max_snow_track_cm",
             "h_min_snow_track_cm",
@@ -114,7 +114,7 @@ function(colnames_raw){
             "h_water_mm",
             "water_in_snow_mm",
             "overall_water_mm",
-            "snow_coverage_type",
+            "snow_cover_type",
             "snow_type"
 
             ),
