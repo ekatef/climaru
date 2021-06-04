@@ -16,7 +16,7 @@ function(colnames_raw){
             "Stepen pokrova okrestnosti stantsii snegom",
             "Dopolnitelnaya informatsiya o vysote snezhnogo pokrova",
             "Priznak kachestva po vysote snezhnogo pokrova",
-            "Dopolnitelnaya informatsiya s uchetom temperatury vozdukha"
+            "Dopolnitelnaya informatsiya s uchetom temperatury vozdukha",
 
             # atmospheric phenomena
             "Sinopticheskiy indeks stantsii",
@@ -115,7 +115,7 @@ function(colnames_raw){
             "water_in_snow_mm",
             "overall_water_mm",
             "snow_coverage_type",
-            "snow_type"                        
+            "snow_type"
 
             ),
      
