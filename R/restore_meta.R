@@ -61,6 +61,28 @@ function(dir_name = NULL, zip_name){
 
     meta_fl_name <- unique(possible_meta_names[possible_meta_names %in% names_in_zip])
 
+    # zip archive can be renamed
+    if ( !any(grep(x = zip_id, pattern = ".*wr|.zip.$")) ){
+        warning(
+            paste0("The `zip name` seems to changed as compared with the database format: ", zip_name, ".\n\r",
+                "The meta data file will be guessed.")
+        )
+
+        if ( is.null(dir_name) ) {
+            fls_in_zip_df <- unzip(zipfile = zip_name, list = TRUE)
+        # in case the zip_name does not contain a full path 
+        } else {
+            fls_in_zip_df <- unzip(file.path(dir_name, zip_name), list = TRUE)
+        }
+
+        if ( nrow(fls_in_zip_df) > 0 ){      
+            meta_fl_name <- fls_in_zip_df$Name[grep(x = fls_in_zip_df$Name, pattern = (".*fld|.txt.$"))]
+        } else {
+            stop(paste0("The assessed zip file" , zip_name, " seems to be empty"))
+        }
+
+    }
+
     if ( is.null(dir_name) ) {
     	meta_txt <- readr::read_file(unz(description = zip_name, 
     		filename = meta_fl_name))
