@@ -11,6 +11,14 @@ function(dir_name = NULL, zip_name){
 
 
     path_separator <- unlist(.Platform["file.sep"])
+
+    if ( any(grep(x = zip_name, pattern = paste0("\\", path_separator))) ) {
+        warning(
+            paste0("The `zip name` seems to be a folder path: ", zip_name, ".\n\r",
+                "Setting dir_name to NULL.")
+        )
+        dir_name <- NULL
+    }
     if ( is.null(dir_name) ) {
     	names_in_zip <- unzip(zipfile = zip_name, list = TRUE)$Name
 	# in case the zip_name does not contain a full path	
