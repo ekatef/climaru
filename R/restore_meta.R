@@ -9,6 +9,7 @@ function(dir_name = NULL, zip_name){
 	# x <- "wr55408a3.zip"
 	# gsub(".*wr|a.*", "", x)
 
+    # preliminary input checks -----------------------------
 
     path_separator <- unlist(.Platform["file.sep"])
 
@@ -25,6 +26,9 @@ function(dir_name = NULL, zip_name){
             paste0("The `zip name` seems to be not a zip name: ", zip_name)
         )
     }
+
+    # ------------------------------------------------------
+
     if ( is.null(dir_name) ) {
     	names_in_zip <- unzip(zipfile = zip_name, list = TRUE)$Name
 	# in case the zip_name does not contain a full path	
