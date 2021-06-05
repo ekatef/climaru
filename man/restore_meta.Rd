@@ -18,7 +18,7 @@ restore_meta(dir_name, zip_name)
 The \code{dir_name} is the directory name where the original meteorological archive is stored. May be \code{NULL} if the \code{zip_name} contains the full path to the archive.
 }
   \item{zip_name}{
-The \code{zip_name} is a single name of a specific zip-archive to be processed.
+The \code{zip_name} is a single name of a specific zip-archive to be processed. May contain a full path to a zip archive to be processed.
 }
 }
 
@@ -28,6 +28,9 @@ A character vector containing the names of the data columns which are stored in 
 
 \details{
 The function is intended for use with the zip archive containing meteorological data available via meteo.ru.
+
+The \code{dir_name} will be set to `NULL` automatically with a warning in case the supplied \code{zip_name} is a folder path.
+
 }
 
 \examples{
