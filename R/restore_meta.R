@@ -9,6 +9,8 @@ function(dir_name = NULL, zip_name){
 	# x <- "wr55408a3.zip"
 	# gsub(".*wr|a.*", "", x)
 
+
+    path_separator <- unlist(.Platform["file.sep"])
     if ( is.null(dir_name) ) {
     	names_in_zip <- unzip(zipfile = zip_name, list = TRUE)$Name
 	# in case the zip_name does not contain a full path	
@@ -18,7 +20,6 @@ function(dir_name = NULL, zip_name){
 
     # the folder path can contain anything => a pure zip archive id shoud be extracted
     if ( is.null(dir_name) ) {
-        path_separator <- unlist(.Platform["file.sep"])
         # courtesy of SO stackoverflow.com/a/31774103/8465924
         zip_id <- sapply(strsplit(zip_name, path_separator), tail, 1L)
     } else {
