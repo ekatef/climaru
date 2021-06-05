@@ -19,7 +19,7 @@ function(dir_name = NULL, zip_name){
     # the folder path can contain anything => a pure zip archive id shoud be extracted
     if ( is.null(dir_name) ) {
         path_separator <- unlist(.Platform["file.sep"])
-        # courtecy of SO stackoverflow.com/a/31774103/8465924
+        # courtesy of SO stackoverflow.com/a/31774103/8465924
         zip_id <- sapply(strsplit(zip_name, path_separator), tail, 1L)
     } else {
         zip_id <- zip_name
