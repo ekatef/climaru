@@ -155,7 +155,7 @@ function(dir_name = NULL, zip_name){
         } 
 
         colnames(data_df) <- available_data_columns_clean   
-        st_ids <- unique(data_df[, "st_id"])
+        st_ids <- as.character(unique(data_df[, "st_id"]))
 
 
     }
