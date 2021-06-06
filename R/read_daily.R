@@ -28,7 +28,6 @@ function(dir_name, zip_name, st_id, sep_smb = ";", bulk_file = FALSE){
     if ( bulk_file ) {
         st_fl_name <- gsub(pattern = ".zip", replacement = ".txt", x = zip_name)
     }
-
    
     if ( is.null(dir_name) ) {
         
@@ -64,7 +63,7 @@ function(dir_name, zip_name, st_id, sep_smb = ";", bulk_file = FALSE){
 
     # it's easy to mix separator specification
     if ( length(clean_colnames) != ncol(res) ) {
-        # fortunately, there are currently only "" and ";" options
+        # fortunately, there are currently only "" and ";" separator options
         alt_sep_smb <- ifelse(sep_smb == ";", "", ";")
     }    
 
