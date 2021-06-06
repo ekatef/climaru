@@ -30,10 +30,10 @@ function(dir_name = NULL, zip_name){
     # ------------------------------------------------------
 
     if ( is.null(dir_name) ) {
-    	names_in_zip <- unzip(zipfile = zip_name, list = TRUE)$Name
+    	fls_in_zip_df <- unzip(zipfile = zip_name, list = TRUE)
 	# in case the zip_name does not contain a full path	
     } else {
-    	names_in_zip <- unzip(zipfile = file.path(dir_name, zip_name), list = TRUE)$Name
+    	fls_in_zip_df <- unzip(zipfile = file.path(dir_name, zip_name), list = TRUE)
     }
 
     # the folder path can contain anything => a pure zip archive id shoud be extracted
@@ -59,7 +59,7 @@ function(dir_name = NULL, zip_name){
                              paste0("fld", dataset_id,      dataset_post_id, ".txt"), 
                              paste0("fld", dataset_id, "a",                  ".txt"))
 
-    meta_fl_name <- unique(possible_meta_names[possible_meta_names %in% names_in_zip])
+    meta_fl_name <- unique(possible_meta_names[possible_meta_names %in% fls_in_zip_df$Name])
 
     # zip archive can be renamed
     if ( !any(grep(x = zip_id, pattern = ".*wr|.zip.$")) ){
@@ -67,13 +67,6 @@ function(dir_name = NULL, zip_name){
             paste0("The `zip name` seems to changed as compared with the database format: ", zip_name, ".\n\r",
                 "The meta data file will be guessed.")
         )
-
-        if ( is.null(dir_name) ) {
-            fls_in_zip_df <- unzip(zipfile = zip_name, list = TRUE)
-        # in case the zip_name does not contain a full path 
-        } else {
-            fls_in_zip_df <- unzip(file.path(dir_name, zip_name), list = TRUE)
-        }
 
         if ( nrow(fls_in_zip_df) > 0 ){      
             meta_fl_name <- fls_in_zip_df$Name[grep(x = fls_in_zip_df$Name, pattern = (".*fld|.txt.$"))]
