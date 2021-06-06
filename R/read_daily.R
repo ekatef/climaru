@@ -29,7 +29,15 @@ function(dir_name, zip_name, st_id, sep_smb = ";", bulk_file = FALSE){
         st_fl_name <- gsub(pattern = ".zip", replacement = ".txt", x = zip_name)
     }
 
+   
     if ( is.null(dir_name) ) {
+        
+        # a data file may do not exist
+        if ( !file.exists(zip_name) ) {
+            stop(paste0("The requested data file ", st_fl_name,
+                " seems to do not exist in the archive ", ," being processed."))
+        }
+
         res <- read.csv(
             unz(zip_name, st_fl_name),
             # whitespace is possible, as well (and is even default) 
@@ -37,6 +45,13 @@ function(dir_name, zip_name, st_id, sep_smb = ";", bulk_file = FALSE){
             stringsAsFactors = FALSE, header = FALSE)
     # in case the zip_name does not contain a full path 
     } else {
+
+        # a data file may do not exist
+        if ( !file.exists(file.path(dir_name, zip_name)) ) {
+            stop(paste0("The requested data file ", st_fl_name,
+                " seems to do not exist in the archive ", ," being processed."))
+        }
+
         res <- read.csv(
             unz(file.path(dir_name, zip_name), st_fl_name),
             # whitespace is possible, as well (and is even default) 
