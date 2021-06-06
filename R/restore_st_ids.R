@@ -91,18 +91,26 @@ function(dir_name = NULL, zip_name){
         # first extraction attempt
         sep_to_try <- ""
 
+
         if ( is.null(dir_name) ) {
-        
-        data_df <- read.csv(
-            unz(zip_name, st_fls_names),
-            # whitespace is possible, as well (and is even default) 
-            sep = sep_to_try,
-            stringsAsFactors = FALSE, header = FALSE)
-        # in case the zip_name does not contain a full path 
-        } else {
+
+            ncl <- max(count.fields(unz(zip_name, st_fls_names), sep = sep_to_try))
     
             data_df <- read.csv(
+                unz(zip_name, st_fls_names),
+                fill = TRUE, col.names=paste0('V', seq_len(ncl)),
+                # whitespace is possible, as well (and is even default) 
+                sep = sep_to_try,
+                stringsAsFactors = FALSE, header = FALSE)
+        # in case the zip_name does not contain a full path 
+        } else {
+
+            ncl <- max(count.fields(unz(file.path(dir_name, zip_name), st_fls_names), 
+                sep = sep_to_try))    
+            
+            data_df <- read.csv(
                 unz(file.path(dir_name, zip_name), st_fls_names),
+                fill = TRUE, col.names=paste0('V', seq_len(ncl)),
                 # whitespace is possible, as well (and is even default) 
                 sep = sep_to_try,
                 stringsAsFactors = FALSE, header = FALSE)
@@ -115,14 +123,23 @@ function(dir_name = NULL, zip_name){
             sep_to_try <- ""
 
             if ( is.null(dir_name) ) {
+
+                ncl <- max(count.fields(unz(zip_name, st_fls_names), sep = sep_to_try))
+
                 data_df <- read.csv(
                     unz(zip_name, st_fls_names),
+                        fill = TRUE, col.names=paste0('V', seq_len(ncl)),
                         sep = sep_to_try,
                         stringsAsFactors = FALSE, header = FALSE)
             # in case the zip_name does not contain a full path 
             } else {
+
+                ncl <- max(count.fields(unz(file.path(dir_name, zip_name), st_fls_names), 
+                    sep = sep_to_try)) 
+
                 data_df <- read.csv(
                     unz(file.path(dir_name, zip_name), st_fls_names),
+                        fill = TRUE, col.names=paste0('V', seq_len(ncl)),
                         sep = sep_to_try,
                         stringsAsFactors = FALSE, header = FALSE)
             }
