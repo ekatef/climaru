@@ -1,3 +1,4 @@
+# TODO Fix an "unused connestion" issue appearing when bulk data files are processed
 restore_st_ids <-
 function(dir_name = NULL, zip_name){
 
