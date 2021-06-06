@@ -62,6 +62,7 @@ function(dir_name = NULL, zip_name){
     meta_fl_name <- unique(possible_meta_names[possible_meta_names %in% fls_in_zip_df$Name])
 
     # zip archive can be renamed
+    # TODO stronger regexp condition is needed in case the zip name is modified only slightly
     if ( !any(grep(x = zip_id, pattern = ".*wr|.zip.$")) ){
         warning(
             paste0("The `zip name` seems to changed as compared with the database format: ", zip_name, ".\n\r",
