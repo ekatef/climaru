@@ -1,6 +1,26 @@
 read_daily <-
 function(dir_name, zip_name, st_id, sep_smb = ";", bulk_file = FALSE){
 
+    # preliminary input checks -----------------------------
+
+    path_separator <- unlist(.Platform["file.sep"])
+
+    if ( any(grep(x = zip_name, pattern = paste0("\\", path_separator))) ) {
+        warning(
+            paste0("The `zip name` seems to be a folder path: ", zip_name, ".\n\r",
+                "Setting dir_name to NULL.")
+        )
+        dir_name <- NULL
+    }
+
+    if ( !any(grep(x = zip_name, pattern = ".zip$")) ) {
+        stop(
+            paste0("The `zip name` seems to be not a zip name: ", zip_name)
+        )
+    }
+
+    # ------------------------------------------------------
+
     st_fl_name <- paste0(st_id, ".txt")
 
     # in case all the stations are put into a single file
