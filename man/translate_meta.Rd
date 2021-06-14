@@ -90,6 +90,21 @@ The function is intended for use on the zip archive loaded via meteo.ru. The ori
 
 \bold{"end_atm_phen"};
 
+\bold{"wind_direction"};
+
+\bold{"srfw"};
+
+\bold{"srfw_max"};
+
+\bold{"press_station"};
+
+\bold{"press_sl"};
+
+\bold{"bar_tendency_character"};
+
+\bold{"bar_tendency_value"};
+
+
 \bold{"st_n_coordin"};
 
 \bold{"tas_Xcm_onX"};

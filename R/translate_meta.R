@@ -38,6 +38,15 @@ function(colnames_raw){
             "Vremya nachala AYA (nat.znacheniye chasy min)",
             "Vremya okonchaniya AYA (nat.znacheniye chasy min)",
 
+            # wind observations
+            "Napravleniye vetra",
+            "Srednyaya skorost vetra",
+            "Maksimalnaya skorost vetra",
+            "Atmosfernoye davleniye na urovne stantsii",
+            "Atmosfernoye davleniye na urovne morya",
+            "Kharakteristika baricheskoy tendentsii",
+            "Velichina baricheskoy tendentsii",
+
             # soil temperature observations
             "Koordinatnyy nomer stantsii",
             "Temperatura na glubine   sm uvelichennaya v raz",
@@ -95,6 +104,15 @@ function(colnames_raw){
             "intensity_atm_phen",
             "begin_atm_phen",
             "end_atm_phen",
+
+            # wind observations
+            "wind_direction", 
+            "srfw", 
+            "srfw_max", 
+            "press_station", 
+            "press_sl", 
+            "bar_tendency_character", 
+            "bar_tendency_value", 
 
             # soil temperature observations
             "st_n_coordin",
