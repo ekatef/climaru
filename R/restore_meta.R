@@ -57,7 +57,8 @@ function(dir_name = NULL, zip_name){
     possible_meta_names <- c(paste0("fld", dataset_id,                      ".txt"), 
                              paste0("fld", dataset_id, "a", dataset_post_id, ".txt"), 
                              paste0("fld", dataset_id,      dataset_post_id, ".txt"), 
-                             paste0("fld", dataset_id, "a",                  ".txt"))
+                             paste0("fld", dataset_id, "a",                  ".txt"),
+                             paste0("fld", dataset_id, "a", "0",             ".txt"))
 
     meta_fl_name <- unique(possible_meta_names[possible_meta_names %in% fls_in_zip_df$Name])
 
