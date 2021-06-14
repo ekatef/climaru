@@ -19,6 +19,7 @@ function(colnames_raw){
             "Dopolnitelnaya informatsiya s uchetom temperatury vozdukha",
 
             # atmospheric phenomena
+            # TODO Is there any difference between "Indeks VMO" and "Sinopticheskiy indeks stantsii"?
             "Sinopticheskiy indeks stantsii",
             "God po Grinvichu",
             "Mesyats po Grinvichu",
@@ -86,7 +87,7 @@ function(colnames_raw){
             "snow_tas_details",
 
             # atmospheric phenomena
-            "st_id_synopt",
+            "st_id", #"st_id_synopt",
             "year_Greenwich",
             "month_Greenwich",
             "day_Greenwich",
