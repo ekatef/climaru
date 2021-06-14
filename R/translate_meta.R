@@ -141,6 +141,8 @@ function(colnames_raw){
         stringsAsFactors = FALSE)
      
     colnames_en <- paste("col", seq(along.with = colnames_raw), sep = "_")
+
+    # TODO trim whitespaces in `colnames_raw`
      
     for ( i in seq(along.with = colnames_raw) ) {
         ru_en_corresp <- colnames_transl_df$ru %in% colnames_raw[i]
