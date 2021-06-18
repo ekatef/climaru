@@ -96,7 +96,7 @@ function(colnames_raw){
             "month_local",
             "day_local",
             "hour_local",
-            "n_hour_in_day",
+            "i_obs_in_day",
             "time_local",
             "i_time_zone",
             "day_start",
