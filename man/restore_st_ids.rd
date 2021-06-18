@@ -29,6 +29,8 @@ A character vector containing stations identifiers corresponding to the observat
 \details{
 The function is intended for use with the zip archive containing meteorological data available via meteo.ru.
 
+May take quite long in case a single records file containing data for many stations.
+
 The \code{dir_name} will be set to `NULL` automatically with a warning in case the supplied \code{zip_name} is a folder path.
 
 }
