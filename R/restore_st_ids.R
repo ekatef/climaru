@@ -100,7 +100,7 @@ function(dir_name = NULL, zip_name){
     
             data_df <- read.csv(
                 unz(zip_name, st_fls_names),
-                fill = TRUE, col.names=paste0('V', seq_len(ncl)),
+                fill = TRUE, col.names = paste0('V', seq_len(ncl)),
                 # whitespace is possible, as well (and is even default) 
                 sep = sep_to_try,
                 stringsAsFactors = FALSE, header = FALSE)
@@ -132,7 +132,7 @@ function(dir_name = NULL, zip_name){
 
                 data_df <- read.csv(
                     unz(zip_name, st_fls_names),
-                        fill = TRUE, col.names=paste0('V', seq_len(ncl)),
+                        fill = TRUE, col.names = paste0('V', seq_len(ncl)),
                         sep = sep_to_try,
                         stringsAsFactors = FALSE, header = FALSE)
             # in case the zip_name does not contain a full path 
@@ -144,7 +144,7 @@ function(dir_name = NULL, zip_name){
 
                 data_df <- read.csv(
                     unz(file.path(dir_name, zip_name), st_fls_names),
-                        fill = TRUE, col.names=paste0('V', seq_len(ncl)),
+                        fill = TRUE, col.names = paste0('V', seq_len(ncl)),
                         sep = sep_to_try,
                         stringsAsFactors = FALSE, header = FALSE)
             }
