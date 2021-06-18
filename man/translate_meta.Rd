@@ -54,27 +54,25 @@ The function is intended for use on the zip archive loaded via meteo.ru. The ori
 
 \bold{"snow_tas_details} is an additional information related to snow and the temperature conditions;
 
-\bold{"st_id_synopt"};
+\bold{"year_Greenwich"} is an observation year according to UTC;
 
-\bold{"year_Greenwich"};
+\bold{"month_Greenwich"} is an observation month according to UTC;
 
-\bold{"month_Greenwich"};
+\bold{"day_Greenwich"} is an observation day according to UTC;
 
-\bold{"day_Greenwich"};
+\bold{"hour_Greenwich"} is an observation hour according to UTC;
 
-\bold{"hour_Greenwich"};
+\bold{"year_local"} is an observation year according to the local time;
 
-\bold{"year_local"};
+\bold{"month_local"} is an observation month according to the local time;
 
-\bold{"month_local"};
+\bold{"day_local"} is an observation day according to the local time;
 
-\bold{"day_local"};
+\bold{"hour_local"} is an observation hour according to the local time;
 
-\bold{"hour_local"};
+\bold{"i_obs_in_day"} is number of the observation counted inside the day;
 
-\bold{"n_hour_in_day"};
-
-\bold{"time_local"};
+\bold{"time_local"} is the local time of the observation;
 
 \bold{"i_time_zone"};
 
