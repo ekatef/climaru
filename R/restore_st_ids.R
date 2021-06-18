@@ -95,6 +95,7 @@ function(dir_name = NULL, zip_name){
 
         if ( is.null(dir_name) ) {
 
+            # tooks quite long in case of large data files
             ncl <- max(count.fields(unz(zip_name, st_fls_names), sep = sep_to_try))
     
             data_df <- read.csv(
@@ -106,6 +107,7 @@ function(dir_name = NULL, zip_name){
         # in case the zip_name does not contain a full path 
         } else {
 
+            # tooks quite long in case of large data files
             ncl <- max(count.fields(unz(file.path(dir_name, zip_name), st_fls_names), 
                 sep = sep_to_try))    
             
@@ -125,6 +127,7 @@ function(dir_name = NULL, zip_name){
 
             if ( is.null(dir_name) ) {
 
+                # tooks quite long in case of large data files
                 ncl <- max(count.fields(unz(zip_name, st_fls_names), sep = sep_to_try))
 
                 data_df <- read.csv(
@@ -135,6 +138,7 @@ function(dir_name = NULL, zip_name){
             # in case the zip_name does not contain a full path 
             } else {
 
+                # tooks quite long in case of large data files
                 ncl <- max(count.fields(unz(file.path(dir_name, zip_name), st_fls_names), 
                     sep = sep_to_try)) 
 
