@@ -12,11 +12,14 @@ selected_st_info <- st_info_df[st_info_df$St_Code %in% st_ids, ]
 
 # draw maps ------------------------------------------------
 
-dev.new()
-maps::map(xlim = x_range, ylim = y_range, main = "test")
+maps::map(xlim = x_range, ylim = y_range, 
+# ‘mar’ A numerical vector of the form ‘c(bottom, left, top, right)’	
+	mar = c(4.1, 4.1, 3, 0.1)
+	# mar = c(4.1, 4.1, par("mar")[3], 0.1)
+)
 points(x = selected_st_info$Long_dec, y = selected_st_info$Lat_dec, pch = 21,
 		bg = "cornflowerblue", col = "darkblue", cex = 1)
-title(main = main_txt, sub = sub_txt)	
+title(main = main_txt, sub = sub_txt, outer = FALSE)	
 box()
 return(NULL)	
 
