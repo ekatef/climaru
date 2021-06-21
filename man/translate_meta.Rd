@@ -74,9 +74,9 @@ The function is intended for use on the zip archive loaded via meteo.ru. The ori
 
 \bold{"time_local"} is the local time of the observation;
 
-\bold{"i_time_zone"};
+\bold{"i_time_zone"} a time zone number;
 
-\bold{"day_start"};
+\bold{"day_start"} a start of the meteorological day;
 
 \bold{"i_atm_phen"};
 
@@ -90,18 +90,17 @@ The function is intended for use on the zip archive loaded via meteo.ru. The ori
 
 \bold{"wind_direction"};
 
-\bold{"srfw"};
+\bold{"srfw"} is the average surface wind speed;
 
-\bold{"srfw_max"};
+\bold{"srfw_max"} is the maximum surface wind speed;
 
-\bold{"press_station"};
+\bold{"press_station"} is the pressure on the station level;
 
-\bold{"press_sl"};
+\bold{"press_sl"} is the sea level pressure;
 
-\bold{"bar_tendency_character"};
+\bold{"bar_tendency_character"} is a baric tendency type;
 
-\bold{"bar_tendency_value"};
-
+\bold{"bar_tendency_value"} is the baric tendency value;
 
 \bold{"st_n_coordin"};
 
