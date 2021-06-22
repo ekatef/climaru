@@ -102,39 +102,39 @@ The function is intended for use on the zip archive loaded via meteo.ru. The ori
 
 \bold{"bar_tendency_value"} is the baric tendency value;
 
-\bold{"st_n_coordin"};
+\bold{"st_n_coordin"} is a coordinate station number;
 
-\bold{"tas_Xcm_onX"};
+\bold{"tas_Xcm_onY"} is the soil temperature on the X cm multiplied on Y;
 
-\bold{"track_type"};
+\bold{"track_type"} is the track type;
 
-\bold{"snow_coverage_station};
+\bold{"snow_coverage_station} is the snow cover value observed at the station;
 
-\bold{"snow_coverage_track"};
+\bold{"snow_coverage_track"} is the snow cover value observed along the track;
 
-\bold{"ice_coverage_track"};
+\bold{"ice_coverage_track"} is the ice layer height observed along the track;
 
-\bold{"h_mean_snow_track_cm"};
+\bold{"h_mean_snow_track_cm"} is the mean snow level along the track in centimeters;
 
-\bold{"h_max_snow_track_cm"};
+\bold{"h_max_snow_track_cm"} is the maximun snow level along the track in centimeters;
 
-\bold{"h_min_snow_track_cm"};
+\bold{"h_min_snow_track_cm"} is the minimum snow level along the track [cm];
 
-\bold{"snow_density"};
+\bold{"snow_density"} is the mean snow density;
 
-\bold{"h_ice"};
+\bold{"h_ice"} is the mean thickness of the ice layer;
 
-\bold{"h_humide_snow_mm"};
+\bold{"h_humide_snow_mm"} is the thickness of the snow saturated with water;
 
-\bold{"h_water_mm"};
+\bold{"h_water_mm"} is the water level [mm];
 
-\bold{"water_in_snow_mm"};
+\bold{"water_in_snow_mm"} is the water amount in the snow [mm];
 
-\bold{"overall_water_mm"};
+\bold{"overall_water_mm"} is the overall water amount [mm];
 
-\bold{"snow_coverage_type"};
+\bold{"snow_cover_type"} is the snow cover type;
 
-\bold{"snow_type"}.          
+\bold{"snow_type"} is the snow type.          
 
 The list is currently under development to include more meteorological variables could be assessed via the RIHMI WDC data base. The \code{"col_[[:digit:]]+"} (\emph{"col_1"}, \emph{"col_2"} etc) is used if the term is not available yet as a replacement of the initial notation.
 
