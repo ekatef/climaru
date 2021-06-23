@@ -94,7 +94,7 @@ function(dir_name = NULL, zip_name){
     
     # TO DO digits between letters could be kept ("Temperatura na glubine  sm")
     meta_ids <- gsub(",", "", gsub("[[:digit:]]", "", unlist(strsplit(meta_clean, "\r\n"))))
-    meta_colnames <- trimws(meta_ids)
+    meta_colnames <- trimws(gsub("\\s+", " ", meta_ids))
 
 	# test <- read.csv(
 	# 	unz(file.path(dir_name, zip_name), meta_fl_name),
