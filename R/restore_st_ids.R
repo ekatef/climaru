@@ -1,4 +1,5 @@
 # TODO Fix an "unused connestion" issue appearing when bulk data files are processed
+# TODO A database update allows for the zip archive names like "Tttr.zip" (with separate files for each station)
 restore_st_ids <-
 function(dir_name = NULL, zip_name){
 
