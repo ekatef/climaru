@@ -18,9 +18,10 @@ function(dir_name = NULL, zip_name){
     path_separator <- unlist(.Platform["file.sep"])
 
     if ( any(grep(x = zip_name, pattern = paste0("\\", path_separator))) ) {
+
+        dir_name_warning <- ifelse(is.null(dir_name), "", paste0(".\n\r", "Setting dir_name to NULL."))
         warning(
-            paste0("The `zip name` seems to be a folder path: ", zip_name, ".\n\r",
-                "Setting dir_name to NULL.")
+            paste0("The `zip name` seems to be a folder path: ", zip_name, dir_name_warning)
         )
         dir_name <- NULL
     }
