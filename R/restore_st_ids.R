@@ -157,7 +157,7 @@ function(dir_name = NULL, zip_name){
             }
     
             if ( length(available_data_columns_clean) != ncol(data_df) ) {
-                stop(paste0("Fail to extract st_ids in ",
+                stop(paste0("Something went wrong with data loading in ",
                     st_fls_names, ", (", zip_name, "). ", 
                     "The meta-data columnames are ",
                      paste(available_data_columns_clean, collapse = ", "),
