@@ -79,8 +79,10 @@ function(dir_name = NULL, zip_name){
         looks_like_bulk_data <- grepl(x = fls_in_zip_df$Name, pattern = "^wr\\d{5,6}.*txt$")
 
         st_fls_names <- ifelse(is.na(zip_id), 
-                        fls_in_zip_df[looks_like_bulk_data, "Name"], 
-                        gsub(x = zip_id, pattern = ".zip", replacement = ".txt"))
+            fls_in_zip_df[looks_like_bulk_data, "Name"], 
+            gsub(x = zip_id, pattern = ".zip", replacement = ".txt"))
+#        st_fls_names <- gsub(x = zip_name, pattern = ".zip", replacement = ".txt")
+
 
         if ( length(unique(st_fls_names)) > 1 ) {
             warning(paste0("There are more than one bulk-data files: ", 
@@ -89,8 +91,7 @@ function(dir_name = NULL, zip_name){
             st_fls_names <- st_fls_names[1]
         }
 
-        available_data_columns_raw <- restore_meta(dir_name = dir_name, zip_name = zip_name)
-        available_data_columns_clean <- translate_meta(available_data_columns_raw)
+        key_fl_name <- gsub(st_fls_names, pattern = "wr", replacement = "fld")
     
         if ( !any(available_data_columns_clean %in% "st_id") ) {
             warning(paste0("No st_id column in meta data. Available columns: ", 
