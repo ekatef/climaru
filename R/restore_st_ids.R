@@ -53,11 +53,13 @@ function(dir_name = NULL, zip_name){
     # ------------------------------------------------------
 
     if ( is.null(dir_name) ) {
-        fls_in_zip_df <- unzip(zipfile = zip_name, list = TRUE)
+        data_path <- zip_name
     # in case the zip_name does not contain a full path 
     } else {
-        fls_in_zip_df <- unzip(zipfile = file.path(dir_name, zip_name), list = TRUE)
+        data_path <- file.path(dir_name, zip_name)
     }
+
+    fls_in_zip_df <- unzip(zipfile = data_path, list = TRUE)
 
     if ( nrow(fls_in_zip_df) == 0 ) {      
         stop(paste0("The assessed zip file" , zip_name, " seems to be empty"))
