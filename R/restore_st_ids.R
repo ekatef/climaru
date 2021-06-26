@@ -92,84 +92,42 @@ function(dir_name = NULL, zip_name){
         }
 
         key_fl_name <- gsub(st_fls_names, pattern = "wr", replacement = "fld")
+
+        # the name may include "a0" with no apparent reasons...
+        if ( !(file.exists(key_fl_name)) ) {
+            key_fl_name <- gsub(key_fl_name, pattern = ".txt", 
+                replacement = "a0.txt")
+        }
+
+        keys_df <- dstrfw(
+            x = readAsRaw(unz(data_path, key_fl_name)), 
+            col_types = c("integer", "integer", "character", NULL), 
+            widths = c(2, 3, 8, NULL), 
+            nsep = NA, strict=TRUE, skip=0L, nrows=-1L)
+        
+        # would a regexp work better?
+        data_field_widths <- floor(as.numeric(gsub(keys_df[, 3], 
+            pattern = ",", replacement = ".")))
+        meta_names <- translate_meta(restore_meta(dir_name = dir_name, 
+            zip_name = zip_name))
     
         if ( !any(available_data_columns_clean %in% "st_id") ) {
             warning(paste0("No st_id column in meta data. Available columns: ", 
                     available_data_columns_clean))
         }
 
-        # trials-and-errors to extract st_ids from the data file
-        # first extraction attempt
-        sep_to_try <- ""
+        # TODO How to skip all non-st_ids columns?
+        i_st_id <- which(meta_names %in% "st_id")
+        data_col_types <- rep("double", times = length(meta_names))
+        data_col_types[i_st_id] <- "integer"
 
+        data_df <- dstrfw(
+            x = readAsRaw(unz(data_path, st_fls_names)), 
+            col_types = data_col_types, 
+            widths = data_field_widths, 
+            nsep = NA, strict=TRUE, skip=0L, nrows=-1L)
 
-        if ( is.null(dir_name) ) {
-
-            # tooks quite long in case of large data files
-            ncl <- max(count.fields(unz(zip_name, st_fls_names), sep = sep_to_try))
-    
-            data_df <- read.csv(
-                unz(zip_name, st_fls_names),
-                fill = TRUE, col.names = paste0('V', seq_len(ncl)),
-                # whitespace is possible, as well (and is even default) 
-                sep = sep_to_try,
-                stringsAsFactors = FALSE, header = FALSE)
-        # in case the zip_name does not contain a full path 
-        } else {
-
-            # tooks quite long in case of large data files
-            ncl <- max(count.fields(unz(file.path(dir_name, zip_name), st_fls_names), 
-                sep = sep_to_try))    
-            
-            data_df <- read.csv(
-                unz(file.path(dir_name, zip_name), st_fls_names),
-                fill = TRUE, col.names=paste0('V', seq_len(ncl)),
-                # whitespace is possible, as well (and is even default) 
-                sep = sep_to_try,
-                stringsAsFactors = FALSE, header = FALSE)
-        }
-    
-        # second extraction attempt
-        # fortunately, there are only two separator options
-        if ( length(available_data_columns_clean) != ncol(data_df) ) {
-
-            sep_to_try <- ""
-
-            if ( is.null(dir_name) ) {
-
-                # tooks quite long in case of large data files
-                ncl <- max(count.fields(unz(zip_name, st_fls_names), sep = sep_to_try))
-
-                data_df <- read.csv(
-                    unz(zip_name, st_fls_names),
-                        fill = TRUE, col.names = paste0('V', seq_len(ncl)),
-                        sep = sep_to_try,
-                        stringsAsFactors = FALSE, header = FALSE)
-            # in case the zip_name does not contain a full path 
-            } else {
-
-                # tooks quite long in case of large data files
-                ncl <- max(count.fields(unz(file.path(dir_name, zip_name), st_fls_names), 
-                    sep = sep_to_try)) 
-
-                data_df <- read.csv(
-                    unz(file.path(dir_name, zip_name), st_fls_names),
-                        fill = TRUE, col.names = paste0('V', seq_len(ncl)),
-                        sep = sep_to_try,
-                        stringsAsFactors = FALSE, header = FALSE)
-            }
-    
-            if ( length(available_data_columns_clean) != ncol(data_df) ) {
-                stop(paste0("Something went wrong with data loading in ",
-                    st_fls_names, ", (", zip_name, "). ", 
-                    "The meta-data columnames are ",
-                     paste(available_data_columns_clean, collapse = ", "),
-                     " with " , ncol(data_df), " columns."))
-            }
-            
-        } 
-
-        colnames(data_df) <- available_data_columns_clean   
+        colnames(data_df) <- meta_names  
         st_ids <- as.character(unique(data_df[, "st_id"]))
 
 
