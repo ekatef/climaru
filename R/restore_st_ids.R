@@ -111,9 +111,9 @@ function(dir_name = NULL, zip_name){
         meta_names <- translate_meta(restore_meta(dir_name = dir_name, 
             zip_name = zip_name))
     
-        if ( !any(available_data_columns_clean %in% "st_id") ) {
+        if ( !any(meta_names %in% "st_id") ) {
             warning(paste0("No st_id column in meta data. Available columns: ", 
-                    available_data_columns_clean))
+                    meta_names))
         }
 
         # TODO How to skip all non-st_ids columns?
@@ -133,8 +133,6 @@ function(dir_name = NULL, zip_name){
 
     }
 
-    # return(list(st_fls_names, available_data_columns))
     return(st_ids)
     
-
 }    
