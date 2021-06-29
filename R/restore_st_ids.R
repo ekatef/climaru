@@ -65,21 +65,21 @@ function(dir_name = NULL, zip_name){
         stop(paste0("The assessed zip file" , zip_name, " seems to be empty"))
     }
 
-    is_single_station_file <- grepl(x = fls_in_zip_df$Name, pattern = "^\\d{5,6}\\.txt$")
+    im_a_separate_station_file <- grepl(x = fls_in_zip_df$Name, pattern = "^\\d{5,6}\\.txt$")
 
     # in case all stations records are put into a single file
     # the standard data file name is the same as the archive name 
-    if ( any(is_single_station_file) ) {
+    if ( any(im_a_separate_station_file) ) {
 
-        st_fls_names <- fls_in_zip_df[is_single_station_file, "Name"]
+        st_fls_names <- fls_in_zip_df[im_a_separate_station_file, "Name"]
         st_ids <- gsub(pattern = ".txt", replacement = "", x = st_fls_names)        
 
     } else {
 
-        looks_like_bulk_data <- grepl(x = fls_in_zip_df$Name, pattern = "^wr\\d{5,6}.*txt$")
+        im_a_bulk_station_file <- grepl(x = fls_in_zip_df$Name, pattern = "^wr\\d{5,6}.*txt$")
 
         st_fls_names <- ifelse(is.na(zip_id), 
-            fls_in_zip_df[looks_like_bulk_data, "Name"], 
+            fls_in_zip_df[im_a_bulk_station_file, "Name"], 
             gsub(x = zip_id, pattern = ".zip", replacement = ".txt"))
 #        st_fls_names <- gsub(x = zip_name, pattern = ".zip", replacement = ".txt")
 
