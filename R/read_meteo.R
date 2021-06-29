@@ -51,7 +51,7 @@ function(dir_name, zip_name, st_id, bulk_file = FALSE){
         st_id <- st_id[1]
     }
          
-    # ------------------------------------------------------
+    # initial files structure check --------------------------------------------
 
     if ( is.null(dir_name) ) {
         data_path <- zip_name
@@ -68,7 +68,8 @@ function(dir_name, zip_name, st_id, bulk_file = FALSE){
 
     # assess files names -------------------------------------------------------
 
-    key_fl_name <- fls_in_zip_df$Name[grep(fls_in_zip_df$Name, pattern = "^fld")]
+    key_fl_name <- fls_in_zip_df$Name[grep(fls_in_zip_df$Name, 
+        pattern = "^fld")]
 
     keys_df <- dstrfw(
         x = readAsRaw(unz(data_path, key_fl_name)), 
@@ -141,8 +142,6 @@ function(dir_name, zip_name, st_id, bulk_file = FALSE){
     } else {
 
         data_file <- fls_in_zip_df$Name[im_a_bulk_station_file]
-
-        # return(data_file)
 
         data_df <- dstrfw(
             x = readAsRaw(unz(data_path, data_file)), 
