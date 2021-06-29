@@ -1,5 +1,5 @@
-\name{read_daily}
-\alias{read_daily}
+\name{read_meteo}
+\alias{read_meteo}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
 Extract meteorological records from the raw meteorological archive
@@ -9,7 +9,7 @@ Extract meteorological records from the raw meteorological archive
 Extracts data for a given meteorological station from the raw zip-archive loaded from meteo.ru into a regular dataframe. The dataframe columns names are being attempted to be automatically translated using the metadata.
 }
 \usage{
-read_daily(dir_name, zip_name, st_id, sep_smb, bulk_file)
+read_meteo(dir_name, zip_name, st_id, sep_smb, bulk_file)
 }
 
 \arguments{
@@ -42,12 +42,12 @@ A dataframe of the observed meteorological time series corresponding to the requ
 The raw meteorological records are supposed to be loaded via meteo.ru data access service with original zip archive names left untouched. Yes, "wr56089a1.zip" is perfectly alright.
 }
 
-\examples{
-# full path to the example zip file
-meteo_zip <- system.file("extdata", "wr56089.zip", package = "climaru")
-data_chunk <- read_daily(dir_name = NULL, zip_name = meteo_zip, 
-    st_id = 20069)
-}
+% \examples{
+% # full path to the example zip file
+% meteo_zip <- system.file("extdata", "wr56089.zip", package = "climaru")
+% data_chunk <- read_meteo(dir_name = NULL, zip_name = meteo_zip, 
+%     st_id = 20069)
+% }
 % % Add one or more standard keywords, see file 'KEYWORDS' in the
 % % R documentation directory.
 % \keyword{ ~kwd1 } manip
