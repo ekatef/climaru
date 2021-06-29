@@ -81,8 +81,6 @@ function(dir_name = NULL, zip_name){
         st_fls_names <- ifelse(is.na(zip_id), 
             fls_in_zip_df[im_a_bulk_station_file, "Name"], 
             gsub(x = zip_id, pattern = ".zip", replacement = ".txt"))
-#        st_fls_names <- gsub(x = zip_name, pattern = ".zip", replacement = ".txt")
-
 
         if ( length(unique(st_fls_names)) > 1 ) {
             warning(paste0("There are more than one bulk-data files: ", 
