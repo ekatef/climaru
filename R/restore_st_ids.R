@@ -94,7 +94,8 @@ function(dir_name = NULL, zip_name){
         key_fl_name <- gsub(st_fls_names, pattern = "wr", replacement = "fld")
 
         # the name may include "a0" with no apparent reasons...
-        if ( !(file.exists(key_fl_name)) ) {
+        # if ( !(file.exists(unz(file.path(data_path, key_fl_name)))) ) {
+        if ( !(any(fls_in_zip_df$Name %in% key_fl_name )) ) {    
             key_fl_name <- gsub(key_fl_name, pattern = ".txt", 
                 replacement = "a0.txt")
         }
