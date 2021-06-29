@@ -1,5 +1,5 @@
 read_meteo <-
-function(dir_name, zip_name, st_id, sep_smb = ";", bulk_file = FALSE){
+function(dir_name, zip_name, st_id, bulk_file = FALSE){
 
     # preliminary input checks -----------------------------
 

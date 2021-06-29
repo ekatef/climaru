@@ -22,9 +22,6 @@ The \code{zip_name} is the name of a specific zip-archive to be processed.
   \item{st_id}{
 The \code{st_id} is the name of the meteorological station to be read from the whole zip archive.
 }
-  \item{sep_smb}{
-The \code{sep_smb} is a supposed data separator. Is checked automatically and corrected if necessary.
-}
   \item{bulk_file}{
 The \code{bulk_file} is a logical file indicating the observations for different stations were put into a single file.
 }
