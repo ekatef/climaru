@@ -45,8 +45,8 @@ function(dir_name, zip_name, st_id, bulk_file = FALSE){
     if ( length(st_id) > 1 ) {
         warning(
             paste0("More than one station is requested namely ",
-                paste(collapse = st_id,  ", "), "\n\r",
-                "First one only will be processed.")
+                   paste(st_id, collapse = ", "), "\n\r",
+                   "First one only will be processed.")
         )
         st_id <- st_id[1]
     }
