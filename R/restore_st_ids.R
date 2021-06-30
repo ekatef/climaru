@@ -1,7 +1,8 @@
 # TODO Fix an "unused connestion" issue appearing when bulk data files are processed
 # TODO A database update allows for the zip archive names like "Tttr.zip" (with separate files for each station)
 
-# TODO Separator choise should be more elegant
+# TODO Does unarchiving affect the performance? 
+# It could make sense in case of considerable improvements
 
 # unzip + iotools() provide a perfect option to increase performance
 # data.table::fread() is unstable for the purpose due to a possible columns loss

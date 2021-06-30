@@ -42,6 +42,8 @@ function(dir_name, zip_name, st_id, bulk_file = FALSE){
         zip_id <- NA  
     }
 
+    # TODO Actually, that is perfectly possible to process many st ids
+    # The only question is to handle different availability cases
     if ( length(st_id) > 1 ) {
         warning(
             paste0("More than one station is requested namely ",
