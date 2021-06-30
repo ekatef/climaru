@@ -9,7 +9,7 @@ Extract meteorological records from the raw meteorological archive
 Extracts data for a given meteorological station from the raw zip-archive loaded from meteo.ru into a regular dataframe. The dataframe columns names are being attempted to be automatically translated using the metadata.
 }
 \usage{
-read_meteo(dir_name, zip_name, st_id, sep_smb, bulk_file)
+read_meteo(dir_name, zip_name, st_id)
 }
 
 \arguments{
@@ -21,9 +21,6 @@ The \code{zip_name} is the name of a specific zip-archive to be processed.
 }
   \item{st_id}{
 The \code{st_id} is the name of the meteorological station to be read from the whole zip archive.
-}
-  \item{bulk_file}{
-The \code{bulk_file} is a logical file indicating the observations for different stations were put into a single file.
 }
 }
 
