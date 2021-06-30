@@ -128,7 +128,7 @@ function(dir_name = NULL, zip_name){
             nsep = NA, strict=TRUE, skip=0L, nrows=-1L)
 
         colnames(data_df) <- meta_names  
-        st_ids <- as.character(unique(data_df[, "st_id"]))
+        st_ids <- as.numeric(unique(data_df[, "st_id"]))
 
 
     }
