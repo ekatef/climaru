@@ -10,6 +10,7 @@ function(colnames_raw){
             "Obshchiy priznak kachestva temperatur", 
             "Minimalnaya temperatura vozdukha", "Srednyaya temperatura vozdukha", "Maksimalnaya temperatura vozdukha", 
             "Kolichestvo osadkov",
+            "Summa osadkov",
 
             # snow observations
             "Vysota snezhnogo pokrova",    
@@ -29,6 +30,7 @@ function(colnames_raw){
             "Mesyats istochnika (mestnyy)",
             "Den istochnika (mestnyy)",
             "Srok istochnika",
+            "Srok istochnika (mestnyy)",
             "Nomer sroka v sutkakh po PDZV",
             "Vremya mestnoye",
             "Nomer chasovogo poyasa",
@@ -78,6 +80,7 @@ function(colnames_raw){
             "t_quality_flag",
             "t_min", "t_avr", "t_max",
             "pre",
+            "pre",
 
             # snow observations
             "h_snow",
@@ -95,6 +98,7 @@ function(colnames_raw){
             "year_local",
             "month_local",
             "day_local",
+            "hour_local",
             "hour_local",
             "i_obs_in_day",
             "time_local",
