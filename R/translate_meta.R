@@ -120,6 +120,7 @@ function(colnames_raw){
             "bar_tendency_value", 
 
             # soil temperature observations
+            # is it the same as the st_id?
             "st_n_coordin",
             "tas_Xcm_onX",
 
