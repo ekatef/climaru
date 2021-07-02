@@ -73,7 +73,8 @@ function(dir_name = NULL, zip_name){
     if ( any(im_a_separate_station_file) ) {
 
         st_fls_names <- fls_in_zip_df[im_a_separate_station_file, "Name"]
-        st_ids <- gsub(pattern = ".txt", replacement = "", x = st_fls_names)        
+        st_ids <- as.numeric(gsub(pattern = ".txt", replacement = "", 
+            x = st_fls_names) )       
 
     } else {
 
