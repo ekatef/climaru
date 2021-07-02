@@ -1,4 +1,4 @@
-check_zip( <- function(dir_name = NULL, zip_name)
+check_zip <-
 function(dir_name = NULL, zip_name){
     path_separator <- unlist(.Platform["file.sep"])
 
