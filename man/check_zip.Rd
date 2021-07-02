@@ -9,7 +9,7 @@ Does correctness check on the data file paths.
 Extracts data for a given meteorological station from the raw zip-archive loaded from meteo.ru into a regular dataframe. The dataframe columns names are being attempted to be automatically translated using the metadata.
 }
 \usage{
-check_zip(dir_name, zip_name, st_id)
+check_zip(dir_name, zip_name)
 }
 
 \arguments{
