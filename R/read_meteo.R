@@ -151,10 +151,16 @@ function(dir_name, zip_name, st_id){
             nrows = -1L, nsep = NA, strict = TRUE,
             nrowsClasses = 25L, quote="'\"")
     } else {
+
+        # there is a whitespace separator by default influencing of the column width
+        add_widths <- c(seq(from = 1, to = 1, along.with = data_field_widths[-1]), 
+            0)
+
         data_df <- dstrfw(
             x = readAsRaw(unz(data_path, data_file)), 
             col_types = data_col_types, 
-            widths = data_field_widths, 
+            # there is a whitespace separator
+            widths = data_field_widths + add_widths, 
             nsep = NA, strict=TRUE, skip=0L, nrows=-1L) 
 
     }
