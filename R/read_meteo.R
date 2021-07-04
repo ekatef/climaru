@@ -146,11 +146,13 @@ function(dir_name, zip_name, st_id){
 
     # there are only two possible separator options: ";" or ""
     if ( grepl(test_sep, pattern = ";") ) {
+
         data_df <- read.csv.raw(unz(data_path, data_file), 
             header = FALSE, sep = ";", 
             skip = 0L, fileEncoding="",
             nrows = -1L, nsep = NA, strict = TRUE,
             nrowsClasses = 25L, quote="'\"")
+
     } else {
 
         # there is a whitespace separator by default influencing of the column width
