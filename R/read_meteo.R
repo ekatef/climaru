@@ -136,10 +136,7 @@ function(dir_name, zip_name, st_id){
             col_types = data_col_types, 
             widths = data_field_widths, 
             nsep = NA, strict=TRUE, skip=0L, nrows=-1L)
-
-        colnames(data_df) <- meta_names 
-
-        res <- data_df           
+        data_file <- st_fls_names[is_a_requested_df]         
 
     } else {
 
@@ -151,13 +148,11 @@ function(dir_name, zip_name, st_id){
             widths = data_field_widths, 
             nsep = NA, strict=TRUE, skip=0L, nrows=-1L) 
 
-        colnames(data_df) <- meta_names
-
-        res <- data_df[data_df$st_id %in% st_id, ]
-
     }
 
-    return(res)
+    colnames(data_df) <- meta_names
+
+    return(data_df)
 
 
 }
