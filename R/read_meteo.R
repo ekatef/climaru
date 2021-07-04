@@ -129,19 +129,28 @@ function(dir_name, zip_name, st_id){
                 st_id, " is available"))
         }
 
-        data_file <- st_fls_names[is_a_requested_df]
-
-        data_df <- dstrfw(
-            x = readAsRaw(unz(data_path, data_file)), 
-            col_types = data_col_types, 
-            widths = data_field_widths, 
-            nsep = NA, strict=TRUE, skip=0L, nrows=-1L)
         data_file <- st_fls_names[is_a_requested_df]         
 
     } else {
 
         data_file <- fls_in_zip_df$Name[im_a_bulk_station_file]
 
+    }
+
+    test_sep <- read.csv.raw(unz(data_path, data_file), 
+        header = FALSE, sep = NA, 
+        skip = 0L, fileEncoding = "",
+        nrows = 1L, nsep = NA, strict = TRUE,
+        nrowsClasses = 25L, quote = "'\"")
+
+    # there are only two possible separator options: ";" or ""
+    if ( grepl(test_sep, pattern = ";") ) {
+        data_df <- read.csv.raw(unz(data_path, data_file), 
+            header = FALSE, sep = ";", 
+            skip = 0L, fileEncoding="",
+            nrows = -1L, nsep = NA, strict = TRUE,
+            nrowsClasses = 25L, quote="'\"")
+    } else {
         data_df <- dstrfw(
             x = readAsRaw(unz(data_path, data_file)), 
             col_types = data_col_types, 
