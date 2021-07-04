@@ -85,9 +85,9 @@ function(dir_name, zip_name, st_id){
     meta_names <- translate_meta(restore_meta(dir_name = dir_name, 
         zip_name = zip_name))
 
-    i_st_id <- which(meta_names %in% "st_id")
+    # i_st_id <- which(meta_names %in% "st_id")
     data_col_types <- rep("double", times = length(meta_names))
-    data_col_types[i_st_id] <- "integer"
+    # data_col_types[i_st_id] <- "integer"
 
     # touch data files ---------------------------------------------------------
 
