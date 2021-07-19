@@ -49,24 +49,6 @@ function(dir_name = NULL, zip_name){
         zip_id <- zip_name
     }
 
-    # some crypto-notaions are hardcoded
-	if ( length(grep("a", zip_id)) > 0 ) {
-        dataset_id <- gsub(".*wr|a.*", "", zip_id)
-        dataset_post_id <- gsub(".*a|.zip.*", "", zip_id)
-    } else {
-        dataset_id <- gsub(".*wr|.zip.*", "", zip_id)
-        dataset_post_id <- ""
-    }
-
-    # it may be or may be not "a3" at the end of the metadata file
-    possible_meta_names <- c(paste0("fld", dataset_id,                      ".txt"), 
-                             paste0("fld", dataset_id, "a", dataset_post_id, ".txt"), 
-                             paste0("fld", dataset_id,      dataset_post_id, ".txt"), 
-                             paste0("fld", dataset_id, "a",                  ".txt"),
-                             paste0("fld", dataset_id, "a", "0",             ".txt"))
-
-    meta_fl_name <- unique(possible_meta_names[possible_meta_names %in% fls_in_zip_df$Name])
-
     # zip archive can be renamed
     # TODO stronger regexp condition is needed in case the zip name is modified only slightly
     if ( !any(grep(x = zip_id, pattern = ".*wr|.zip.$")) ){
@@ -75,12 +57,36 @@ function(dir_name = NULL, zip_name){
                 "The meta data file will be guessed.")
         )
 
-        if ( nrow(fls_in_zip_df) > 0 ){      
-            meta_fl_name <- fls_in_zip_df$Name[grep(x = fls_in_zip_df$Name, pattern = (".*fld|.txt.$"))]
+        if ( nrow(fls_in_zip_df) > 0 ){   
+            zip_id <- NA              
         } else {
             stop(paste0("The assessed zip file" , zip_name, " seems to be empty"))
         }
 
+    }
+
+
+
+
+    if ( !(is.na(zip_id)) ) {    # some crypto-notaions are hardcoded
+        if ( length(grep("a", zip_id)) > 0 ) {
+            dataset_id <- gsub(".*wr|a.*", "", zip_id)
+            dataset_post_id <- gsub(".*a|.zip.*", "", zip_id)
+        } else {
+            dataset_id <- gsub(".*wr|.zip.*", "", zip_id)
+            dataset_post_id <- ""
+        }
+    
+        # it may be or may be not "a3" at the end of the metadata file
+        possible_meta_names <- c(paste0("fld", dataset_id,                      ".txt"), 
+                                 paste0("fld", dataset_id, "a", dataset_post_id, ".txt"), 
+                                 paste0("fld", dataset_id,      dataset_post_id, ".txt"), 
+                                 paste0("fld", dataset_id, "a",                  ".txt"),
+                                 paste0("fld", dataset_id, "a", "0",             ".txt"))
+    
+        meta_fl_name <- unique(possible_meta_names[possible_meta_names %in% fls_in_zip_df$Name])
+    } else {
+        meta_fl_name <- fls_in_zip_df$Name[grep(x = fls_in_zip_df$Name, pattern = (".*fld|.txt.$"))]
     }
 
     if ( is.null(dir_name) ) {
