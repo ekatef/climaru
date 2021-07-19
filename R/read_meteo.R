@@ -5,6 +5,9 @@ function(dir_name, zip_name, st_id){
 
     zip_check_details <- check_zip(dir_name = dir_name, zip_name = zip_name)
 
+    data_path <- zip_check_details[["data_path"]]
+    fls_in_zip_df <- zip_check_details[["fls_in_zip_df"]]
+    zip_id <- zip_check_details[["zip_id"]]
 
     # TODO Actually, that is perfectly possible to process many st ids
     # The only question is to handle different availability cases

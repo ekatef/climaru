@@ -54,5 +54,9 @@ function(dir_name = NULL, zip_name){
         stop(paste0("The assessed zip file" , zip_name, " seems to be empty"))
     }
 
-    return(data_path)
+    return(
+        list(data_path = data_path, 
+             fls_in_zip_df = fls_in_zip_df,
+             zip_id = zip_id)
+    )
 }    
