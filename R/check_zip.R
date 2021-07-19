@@ -1,5 +1,6 @@
 check_zip <-
 function(dir_name = NULL, zip_name){
+
     path_separator <- unlist(.Platform["file.sep"])
 
     if ( any(grep(x = zip_name, pattern = paste0("\\", path_separator))) ) {

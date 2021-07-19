@@ -84,10 +84,12 @@ function(dir_name = NULL, zip_name){
     }
 
     if ( is.null(dir_name) ) {
+
     	meta_txt <- readr::read_file(unz(description = zip_name, 
     		filename = meta_fl_name))
 	# in case the zip_name does not contain a full path	
     } else {
+
     	meta_txt <- readr::read_file(unz(description = file.path(dir_name, zip_name), 
     		filename = meta_fl_name))
     }
@@ -100,20 +102,6 @@ function(dir_name = NULL, zip_name){
     # TO DO digits between letters could be kept ("Temperatura na glubine  sm")
     meta_ids <- gsub(",", "", gsub("[[:digit:]]", "", unlist(strsplit(meta_clean, "\r\n"))))
     meta_colnames <- trimws(gsub("\\s+", " ", meta_ids))
-
-	# test <- read.csv(
-	# 	unz(file.path(dir_name, zip_name), meta_fl_name),
- #        # whitespace is possible, as well (and is even default) 
-	# 	sep = sep_smb,
-	# 	stringsAsFactors = FALSE, header = FALSE)
-
-	# test <- read.fwf(unz(file.path(dir_name, zip_name), meta_fl_name),
-	# 				widths = c(4, 6, 5, 100),
-	# 				fileEncoding = "windows-1251",
-	# 				stringsAsFactors = FALSE) 
-
-	# # works better
-	# test_tsv <- read_tsv(unz(file.path(test_data_dir23, zip_data_fl23), meta_fl_name23))
 	
 	return(meta_colnames)
 }
