@@ -15,59 +15,15 @@ function(dir_name = NULL, zip_name){
 
     # preliminary input checks -----------------------------
 
-    path_separator <- unlist(.Platform["file.sep"])
+    zip_check_details <- check_zip(dir_name = dir_name, zip_name = zip_name)
 
-    if ( any(grep(x = zip_name, pattern = paste0("\\", path_separator))) ) {
+    data_path <- zip_check_details[["data_path"]]
+    fls_in_zip_df <- zip_check_details[["fls_in_zip_df"]]
+    zip_id <- zip_check_details[["zip_id"]]
 
-        dir_name_warning <- ifelse(is.null(dir_name), "", paste0(".\n\r", "Setting dir_name to NULL."))
-        warning(
-            paste0("The `zip name` seems to be a folder path: ", zip_name, dir_name_warning)
-        )
-        dir_name <- NULL
-    }
+    # names assesment
 
-    if ( !any(grep(x = zip_name, pattern = ".zip$")) ) {
-        stop(
-            paste0("The `zip name` seems to be not a zip name: ", zip_name)
-        )
-    }
-
-    # ------------------------------------------------------
-
-    if ( is.null(dir_name) ) {
-    	fls_in_zip_df <- unzip(zipfile = zip_name, list = TRUE)
-	# in case the zip_name does not contain a full path	
-    } else {
-    	fls_in_zip_df <- unzip(zipfile = file.path(dir_name, zip_name), list = TRUE)
-    }
-
-    # the folder path can contain anything => a pure zip archive id shoud be extracted
-    if ( is.null(dir_name) ) {
-        # courtesy of SO stackoverflow.com/a/31774103/8465924
-        zip_id <- sapply(strsplit(zip_name, path_separator), tail, 1L)
-    } else {
-        zip_id <- zip_name
-    }
-
-    # zip archive can be renamed
-    # TODO stronger regexp condition is needed in case the zip name is modified only slightly
-    if ( !any(grep(x = zip_id, pattern = ".*wr|.zip.$")) ){
-        warning(
-            paste0("The `zip name` seems to changed as compared with the database format: ", zip_name, ".\n\r",
-                "The meta data file will be guessed.")
-        )
-
-        if ( nrow(fls_in_zip_df) > 0 ){   
-            zip_id <- NA              
-        } else {
-            stop(paste0("The assessed zip file" , zip_name, " seems to be empty"))
-        }
-
-    }
-
-
-
-
+    # the archive name may be a meaningful original or beautifully changed
     if ( !(is.na(zip_id)) ) {    # some crypto-notaions are hardcoded
         if ( length(grep("a", zip_id)) > 0 ) {
             dataset_id <- gsub(".*wr|a.*", "", zip_id)
