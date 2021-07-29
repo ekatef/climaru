@@ -1,6 +1,11 @@
+# В open.connection(con, "rb") :
+#   не могу найти файл '' в zip-файле '/Users/ekatef/Documents/_data_tmp_/meteoru/wr79835_monthly.zip'
+
 # TODO Allow to skip variables names when calling a function
 
 # What if the warnings will be optional?
+
+
 
 restore_meta <-
 function(dir_name = NULL, zip_name){

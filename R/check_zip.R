@@ -1,3 +1,4 @@
+# TO DO Add functionality to change a file name to a more specific one?
 check_zip <-
 function(dir_name = NULL, zip_name){
 
